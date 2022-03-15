@@ -1,3 +1,3 @@
 # Web-sovelluskehitys-1
-##Riku Koski
+## Riku Koski
 Tehtävien palautus repo
