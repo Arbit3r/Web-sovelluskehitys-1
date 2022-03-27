@@ -1,0 +1,55 @@
+#boxi{
+    display: block;
+    width: 500px;
+    border: solid;
+    padding: 0px;
+    margin: auto;
+    text-align: center;
+}
+
+#imagecaption{
+    margin: auto auto 50px;
+    padding: 0px;
+    justify-content: center;
+    font-weight: bold;
+}
+#boxi > img {
+    display: block;
+    border: solid grey;
+    margin: auto;
+    padding: 0px;
+}
+#boxi > h1 {
+    font-size: 7em;
+    margin: 30px;
+}
+#taulu{
+    margin: 1em auto 1em auto;
+    padding: 0px;
+    border-collapse: collapse;
+}
+#taulu tr > th {
+    border-bottom: solid 1px;
+    border-top: solid 1px;
+    margin: 0px;
+    padding: 20px 35px;
+}
+#taulu tr > th > h3 {
+    font-size: 2em;
+    padding: 0px;
+    margin: 0px;
+}
+#taulu tr > th > p {
+    font-size: 1em;
+    padding: 0px;
+    margin: 0px;
+}
+#Blueberry{
+    background-color: #c6d9f1;
+}
+#Cloudberry {
+    background-color: #fde9d9;
+}
+#Lingonberry {
+    background-color: #d99594;
+}

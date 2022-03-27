@@ -1,0 +1,28 @@
+main{
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding: 15px;
+    border: solid;
+    justify-content: center;
+    align-content: center;
+    contain: content;
+}
+main img{
+    display: block;
+    border: solid;
+    height: auto;
+    width: 300px;
+    float: left;
+    margin: 1px;
+    padding: 1px;
+}
+header h1 {
+    text-align: center;
+}
+summary p {
+    text-align: center;
+    column-count: 1;
+    column-fill: balance;
+    column-gap: 50px;
+}

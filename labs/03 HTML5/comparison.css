@@ -1,0 +1,42 @@
+#technical{
+    border: black solid 1px;
+    border-top-color: darkgrey;
+    border-collapse: collapse;
+    width: 100%;
+}
+#technical caption{
+    font-weight: bold;
+    font-size: large;
+    border: black solid 1px;
+    border-bottom-color: darkgrey;
+}
+#technical thead tr th{
+    background-color: red;
+    color: white;
+}
+#technical tr>:nth-child(1){
+    border-right: solid 1px grey;
+    font-weight: bold;
+}
+#technical tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+p{
+    padding: 0px 10px 10px 10px;
+    width: fit-content;
+    margin: 5px;
+}
+body{
+    display: block;
+    width: 500px;
+    margin: 5px;
+    padding: 10px;
+    align-content: center;
+}
+hr {
+    display: none;
+}
+#technical td{
+    margin: 5px;
+    padding: 5px 3px;
+}
