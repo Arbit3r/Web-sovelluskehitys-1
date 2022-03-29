@@ -1,0 +1,21 @@
+input {
+    margin: 10px;
+    border: #d9222f 2px solid;
+    border-radius: 5px;
+}
+label{
+    font-weight: bold;
+}
+fieldset{
+    border: rgba(255,180,78,1) 5px solid;
+    border-radius: 7px;
+    background-color: rgba(253,233,217,1);
+}
+legend{
+    font-weight: bold;
+    font-size: 20px;
+}
+form {
+    width: 600px;
+    margin: auto;
+}

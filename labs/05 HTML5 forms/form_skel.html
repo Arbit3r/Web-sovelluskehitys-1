@@ -1,63 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!--
-	This page demonstrates a form.
-	-->
+<link href="form.css" type="text/css" rel="stylesheet" />
 	<head>
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
 	</head>
 	
 	<body>
-		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
-			<div>
-				Name: <input type="text" name="studentname"/>
-			</div>
-			<div>
-				Student id: <input type="text" name="id"  />
-			</div>
-			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
-			</div>
-			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
-			</div>
+			<h1>Turnitin</h1>
+				<fieldset>
+					<legend>Assigment</legend>
+				<label>Name:<input type="text" name="Studentname" oninvalid="this.setCustomValidity('Anna nimesi kirjaimina')" placeholder="a-ö" /></label><br>
+				<label>Student id: <input type="number" name="Id" oninvalid="this.setCustomValidity('Anna numerona')"placeholder="11" max="4" pattern="^[1-9]+[0-9]*$" required/></label><br>
+				<label>Email:<input type="email" name="Email" oninvalid="this.setCustomValidity('Sähköposti tulee antaa muodossa (Matti@sposti.fi) sisältäen @ merkin')"
+									placeholder="name@email.fi" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/></label><br>
+				</fieldset>
 
-			<div>
-				Code:
-				<!--
-				Make an input named "code" which is a text area to put student's code into.
-				-->
-				
-			</div>
-			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
-			</div>
-			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
-			</div>
-			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
-			</div>
-			<input type="submit" />
+				<fieldset>
+					<legend>Assigment</legend>
+					<label>Assignment:<input type="text" name="Assigment"  oninvalid="this.setCustomValidity('Anna työn nimi kirjainmerkkeinä')" placeholder="workname"/></label><br>
+
+					<label>Code:<input type="text" name="Code" oninvalid="this.setCustomValidity('Anna koodisi')" placeholder="{....}"/></label><br>
+
+					<label>Cheat:<input type="checkbox" name="Cheat"  /></label><br>
+
+					<label>Score:<input list="score" oninvalid="this.setCustomValidity('Anna numero 1-5 kokonaisnumeroina')" pattern="[0-5]{1}" placeholder="1-5">
+						<datalist id="score">
+							<option value="1">
+							<option value="2">
+							<option value="3">
+							<option value="4">
+							<option value="5">
+						</datalist></label><br>
+
+				</fieldset>
+
+			<fieldset>
+				<legend>Credit Card</legend>
+				<label><input type="radio" name="card" value="Visa"/>Visa</label>
+				<label><input type="radio" name="card" value="Mastercard">MasterCard</label>
+				<label><input type="radio" name="card" value="paypal" />PayPal</label>
+			</fieldset>
+
+				<fieldset>
+					<legend>Submit</legend>
+					<label><input type="submit" /></label>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
+				</fieldset>
+
 		</form>
-		<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
 	</body>
 </html>
