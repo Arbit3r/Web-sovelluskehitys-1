@@ -42,5 +42,29 @@ function addTask() {
 function init() {
     'use strict';
     document.getElementById('theForm').onsubmit = addTask;
+    document.getElementById('delete').onclick = removeDuplicates;
 } // End of init() function.
 window.onload = init;
+
+function removeDuplicates(){
+    'use strict';
+
+    const output = document.getElementById('output');
+
+    let unique = new Set();
+
+    for (let i = 0; i < tasks.length; i++) {
+        unique.add(tasks[i]);
+    }
+
+    tasks = Array.from(unique);
+
+    let message = '<h2>To-Do</h2><ol>';
+
+    for (let i = 0; i < tasks.length; i++) {
+        message += '<li>' + tasks[i] + '</li>';
+    }
+    message += '</ol>';
+
+    output.innerHTML = message;
+}
