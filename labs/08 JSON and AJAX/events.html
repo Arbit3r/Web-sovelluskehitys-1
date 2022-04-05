@@ -11,6 +11,8 @@
   <script>
 window.onload = function() {
 	var div = document.getElementById("clickme");
+  let test = document.getElementById("mousetest");
+  test.addEventListener("mouseover", testf,false);
 	if (div.addEventListener) {
 		div.addEventListener("click", handleClick, false);
 	} else if (div.attachEvent) {
@@ -29,9 +31,22 @@ function handleClick(e) {
 	alert("You clicked on " + target.id);
 }
 
+function testf(e){
+  let evt = e || window.event;
+  let target;
+  if (evt.target) {
+    target = evt.target;
+  } else {
+    target = evt.srcElement;
+  }
+  alert("Test mouseover: " + target.id);
+}
   </script>
 </head>
 <body>
+<div>
+  <p id="mousetest">Riku Koski</p>
+</div>
 <span id="clickme">Click me!</span>
 </body>
 </html>

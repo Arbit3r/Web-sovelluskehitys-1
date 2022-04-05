@@ -13,17 +13,25 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+	let obj = {title: title, note: note};
+	console.log(obj);
+	notes.push(obj);
+	document.querySelector('#addPage input').value = '';
+	document.querySelector('#addPage textarea').value = '';
 };
 
 /*
  * handles navigation between the add and edit 'screens'
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
-	console.log('first link clicked');
+	document.getElementById('addPage').style.display = 'block';
+	document.getElementById('editPage').style.display = 'none';
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
-	console.log('second link clicked');
+	document.getElementById('editPage').style.display = 'block';
+	loadList();
+	document.getElementById('addPage').style.display = 'none';
 };
 
 
@@ -36,6 +44,8 @@ function updateNote() {
 	var updated = {title: title, note: note};
 	console.log(updated);
 	notes[id] = {title: title, note: note};
+	title.innerHTML = '';
+	note.innerHTML = '';
 }
 
 function display(element) {

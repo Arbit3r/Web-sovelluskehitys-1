@@ -5,12 +5,23 @@
   <title>Map Coordinates</title>
   <script>
 	window.onload = init;
+	let unlista;
 	function init() {
 		var map = document.getElementById("map");
 		map.onmousemove = showCoords;
 		var mydiv = document.getElementById("mydiv");
 		mydiv.onclick = addtext;
-	}
+        unlista = document.createElement("ul", { is : 'expanding-list' });
+        let test2 = document.createElement("li");
+        unlista.append(test2);
+        for (let i = 0; i < 5; i++){
+          let li = document.createElement("li");
+          let newContent = document.createTextNode("Hi there and greetings! " + i);
+          li.appendChild(newContent);
+          unlista.appendChild(li);
+      }
+
+    }
 	
 	function showCoords(eventObj) {
 		var coords = document.getElementById("coords");
@@ -34,5 +45,8 @@
 	<img id="map" src="data/map.jpg">
 	<p id="coords">Move mouse over map to find coordinates...</p>
 	<div id="mydiv" style="border:1px solid red">I am a DIV! Click me.</div>
+    <ul id="lista">
+
+    </ul>
 </body>
 </html>
