@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- tuotantoversio -->
+    <!-- kehitysversio, jossa hyödyllistä infoa konsolissa -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <h1 v-if = "showdata">{{ message }}</h1>
+    <p>{{ message.length }}</p>
+    <p><input v-model="message"></p>
+    <button v-on:click = "test">Click Me</button>
+    <p>{{ number }}</p>
+    <button @click="number++">+</button>
+    <button @click="number = 0">0</button>
+    <button @click="number--">-</button>
+    <label>
+        <input v-model="chadname">
+        <button @click="gigachads.push({name: chadname})">lisää</button>
+        <button @click="gigachads.shift()">akuutti poisto</button>
+    </label>
+    <div v-for="(chad, index) in gigachads">
+        {{ chad.name }}
+        {{ index }}
+        <button @click="gigachads.splice(index,1)">gigachads</button>
+    </div>
+</div>
+
+<script>
+  var myObject = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello World!',
+      number: 0,
+      showdata: true,
+      gigachads: [{name:"gigachad"},{name:"zelensky"}],
+      chadname: ''
+    },
+    methods : {
+      test : function() {
+        this.showdata = !this.showdata;
+      },
+      lol : function() {
+        this.showdata = !this.showdata;
+      }
+    },
+  })
+</script>
+
+</body>
+
+</html>
