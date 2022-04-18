@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+    .container {
+        border: 1px solid black;
+        padding: 25px;
+    }
+    .btn-space {
+        margin-right: 25px;
+    }
+    body {
+        background-color: antiquewhite;
+    }
+</style>
+<body>
+<form role="form">
+    <div class="container" id="wholeContainer">
+        <h1>Syötä päivämääräväli</h1>
+
+
+        <!-- <div class="col-sm-4"> -->
+        <!--<fieldset> -->
+        <div class="controls form-inline">
+            <div class="form-group">
+                <label for="startingDate">Alkupäivämäärä:</label>
+                <input type="date" class="form-control" id="startingDate" name="startingDate"/>
+            </div>
+
+            <div class="form-group">
+                <label for="endingDate">Loppupäivämäärä:</label>
+                <input type="date" class="form-control" id="endingDate" name="endingDate"/>
+            </div>
+        </div>
+
+        <div id="locationInfo" class="controls form-inline">
+
+        </div>
+        <input onclick="makeQuery()" type="button" value="Lähetä" id="submit">
+
+    </div>
+    <div id="myDIV">fads</div>
+</form>
+</body>
+<script>
+
+  var json; //json is global...
+
+  function makeQuery() {
+    var startdate = document.getElementById("startingDate").value;
+    var enddate = document.getElementById("endingDate").value;
+    if (startdate.length == 0) { // fix this and support empty field
+      return;
+    } else {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          console.log(xmlhttp.response);
+          json = JSON.parse(xmlhttp.response);
+          console.log(json);
+          if (json.length > 0){ // something found
+            console.log("Kaikki kunnossa");
+            showList(json);
+          }
+          else {
+            console.log("Kaikki ei oo kunnossa");
+            document.getElementById("locationInfo").innerHTML = "<br/>Ei tapahtumatietoja tältä ajalta.";
+
+          }
+
+        }
+      };
+      xmlhttp.open("GET", "http://localhost:8080/" + startdate + "/"+ enddate +"/", true);
+      xmlhttp.send();
+    }
+  }
+  function showList(json) {
+    for (let i = 0; i < json.length; i++) {
+      let para = document.createElement("p");
+      para.innerHTML = json[i].Tyyppi + " " + json[i].Maksu + "€ " + json[i].Date;
+
+// Append to another element:
+      document.getElementById("myDIV").appendChild(para);
+
+    }
+  }
+
+</script>
+</html>

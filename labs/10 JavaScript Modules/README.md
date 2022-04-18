@@ -20,7 +20,7 @@ In particular, the todo app in the `advanced_obj_fun` directory contains some ex
 		* js/
 			- model.js
 			- store.js
-			- app.js
+			- route.js
 		* index.html
 
 For the advanced lab code, the application uses other files than those listed. However, by studying the four files listed above you will see how to implement the model part of __Model__ _View Controller_.

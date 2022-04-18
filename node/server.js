@@ -1,15 +1,9 @@
-var express = require('express');
-var app = express();
-
-let a = "";
-
-var server = app.listen(8081, function () {
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log("Example app listening at http://%s:%s", host, port)
-})
+const express = require("express");
+const cors = require('cors');
 var mysql = require('mysql');
+const app = express();
+
+let sql;
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -17,15 +11,39 @@ var con = mysql.createConnection({
   password: "1234",
   database: "example_db"
 });
-
-con.connect(async function(err) {
+con.connect( function(err) {
   if (err) throw err;
-  await con.query("SELECT * FROM event", function (err, result, fields) {
+});
+
+ function haku(start,end){
+
+   con.query("SELECT * FROM tapahtumat WHERE Date BETWEEN '" + start + "' AND '" + end + "'", function (err, result, fields) {
     if (err) throw err;
-    a = result;
+    sql = JSON.stringify(result);
+    console.log(sql);
     console.log(result);
   });
+
+}
+
+
+
+app.use(cors());
+
+app.get("/",(req,res) => {
+  console.log("gfds");
+  res.status(200).send(sql);
 });
-app.get('/', function (req, res) {
-  res.send(a);
-})
+app.get('/:start/:end',(req,res) => {
+  let s = req.params.start;
+  let e = req.params.end;
+  haku(s, e);
+  console.log(sql);
+
+  res.status(200).send(sql);
+});
+
+app.listen(8080);
+
+
+

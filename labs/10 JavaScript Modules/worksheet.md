@@ -70,7 +70,7 @@ advanced_obj_fun/
   js/
     model.js
     store.js
-    app.js
+    route.js
 index.html
 ```
 Together these JS modules implement the “model” part of MVC (Model View Controller).
